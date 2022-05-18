@@ -8,7 +8,9 @@ def update_config [src, dest] {
     let con = ($files | merge {$dest_files})
 
     ($con | each {
-        |it| ^mkdir -p ($it.dest_name | path dirname)
+        |it| if not ($it.dest_name | path dirname | path exists) {
+            ^mkdir -p ($it.dest_name | path dirname)
+            }
     })
     ($con | each {
         |it| if not ( $it.dest_name | path exists ) {
