@@ -26,6 +26,11 @@ Plug 'morhetz/gruvbox'
 Plug 'luochen1990/rainbow'
 Plug 'euclidianace/betterlua.vim'
 Plug 'thindil/Ada-Bundle'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'sirver/Ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'shougo/deoplete.nvim'
 
 vim.call('plug#end')
 
@@ -38,3 +43,22 @@ vim.g.gruvbox_color_column="faded_orange"
 vim.api.nvim_command('colorscheme gruvbox')
 
 vim.g.rainbow_active = 1
+
+vim.api.nvim_set_var('deoplete#enable_at_startup', 1)
+
+--[[ local function test()
+    print("test")
+ end
+]]
+
+--[[
+local api = vim.api
+local autoCompileContext = api.nvim_create_augroup("AutoCompileContext",
+	{ clear = true })
+]]
+
+--[[
+api.nvim_create_autocmd(
+	{"InsertLeave"},
+	{pattern={"*.mkiv"}, callback=test, group=autoCompileContext})
+]]
