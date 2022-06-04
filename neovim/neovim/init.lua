@@ -46,6 +46,18 @@ vim.g.rainbow_active = 1
 
 vim.api.nvim_set_var('deoplete#enable_at_startup', 1)
 
+vim.g.UltiSnipsExpandTrigger="<tab>"
+vim.g.UltiSnipsJumpForwardTrigger="<tab>"
+vim.g.UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+vim.api.nvim_command("inoremap <expr> <C-n> deoplete#manual_complete()")
+
+vim.g.WikiIndex="/home/folkert/Documents/Notes/"
+
+vim.keymap.set('n', '<leader>ww', function()
+    vim.cmd("edit " .. vim.g.WikiIndex .. "index.mkiv")
+end, {desc = 'Go to wiki index' })
+
 --[[ local function test()
     print("test")
  end
