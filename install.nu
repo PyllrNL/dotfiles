@@ -25,4 +25,5 @@ def update_config [src, dest] {
     })
 }
 
-update_config "neovim" "~/.config/nvim"
+update_config "neovim/neovim" "~/.config/nvim"
+update_config "neovim/snippets" "~/.config/nvim/plugged/vim-snippets/UltiSnips"
